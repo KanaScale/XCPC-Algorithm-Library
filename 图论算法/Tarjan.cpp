@@ -1,12 +1,12 @@
 // tarjan 求双连通分量
-const int MAXN = 2e5 + 10;
+const int N = 2e5 + 10;
 const int mod = 998244353;
 
-vector<int> g[MAXN], dcc[MAXN];
+vector<int> g[N], dcc[N];
 
-int dfn[MAXN], low[MAXN], id;
+int dfn[N], low[N], id;
 
-int s[MAXN], tp, p[MAXN], cnt;
+int s[N], tp, p[N], cnt;
 
 void tarjan(int u, int f = 0) {
 	dfn[u] = low[u] = ++id, s[++tp] = u;
