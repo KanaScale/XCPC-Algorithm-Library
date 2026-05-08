@@ -62,12 +62,25 @@ public:
             ht[rk[i]] = k;
         }
     }
+ 
+    // 计算并返回字符串中本质不同的子串数量
+    long long distinct_substrings_count() const {
+        if (n == 0) return 0;
+        // 注意：总子串数可能超出 32 位整数范围，必须使用 long long 避免溢出
+        long long ans = 1LL * n * (n + 1) / 2;
+        // ht[0] 恒为 0，有效计算从 1 开始
+        for (int i = 1; i < n; ++i) {
+            ans -= ht[i];
+        }
+        return ans;
+    }
 
-    // 提供对外的访问接口
+    // 提供对外的单点访问接口
     int get_sa(int i) const { return sa[i]; }
     int get_rk(int i) const { return rk[i]; }
     int get_ht(int i) const { return ht[i]; }
     
+    // 提供完整的数组常数引用获取
     const vector<int>& get_sa_array() const { return sa; }
     const vector<int>& get_rk_array() const { return rk; }
     const vector<int>& get_ht_array() const { return ht; }
@@ -79,6 +92,9 @@ public:
 // 用给定的字符串初始化后缀数组，自动计算 sa, rk 和 ht 数组。时间复杂度 O(N log N)
 SuffixArray(const string& str);
  
+// 获取原字符串中“本质不同”的子串数量。 
+long long get_distinct_substrings_count() const;
+  
 // 获取字典序排名为 i 的后缀在原字符串中的起始下标。
 // 参数: i (0 <= i < n)
 int get_sa(int i) const;
@@ -90,17 +106,8 @@ int get_rk(int i) const;
 // 获取字典序排名为 i 的后缀与其前一名的后缀 (排名为 i-1) 的最长公共前缀 (LCP) 长度。
 // 注意: get_ht(0) 恒等于 0，因为排名第 0 的后缀没有前一个后缀。
 // 参数: i (0 <= i < n)
-int get_ht(int i) const;
- 
-// 获取完整的 sa (Suffix Array) 数组的常数引用
-const vector<int>& get_sa_array() const;
+int get_ht(int i) const; 
 
-// 获取完整的 rk (Rank) 数组的常数引用
-const vector<int>& get_rk_array() const;
-
-// 获取完整的 ht (Height) 数组的常数引用
-const vector<int>& get_ht_array() const;
- 
 // 获取内部处理的字符串长度
 int size() const; 
 */
