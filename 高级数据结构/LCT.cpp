@@ -65,10 +65,7 @@ struct LinkCutTree {
             pushUp(x);
         }
     }
-
-    // ==========================================
-    //  对外暴露的 LCT 核心 API
-    // ==========================================
+    
     void makeRoot(int x) {
         access(x);
         splay(x);
