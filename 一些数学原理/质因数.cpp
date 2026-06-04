@@ -10,20 +10,20 @@
 
 
 //一、埃氏筛
-const int MX = 1'000'001;
-bool is_prime[MX];
+const int N = 1'000'001;
+bool is_prime[N];
 vector<int> primes;
 auto init = []
 {
-    for (int i = 0; i < MX; i++)
+    for (int i = 0; i < N; i++)
         is_prime[i] = true;
     is_prime[0] = is_prime[1] = false; // 0 和 1 不是质数
-    for (int i = 2; i < MX; i++)
+    for (int i = 2; i < N; i++)
     {
         if (is_prime[i])
         {
             primes.push_back(i);
-            for (long long j = 1LL * i * i; j < MX; j += i)
+            for (long long j = 1LL * i * i; j < N; j += i)
             {
                 is_prime[j] = false; // j 是质数 i 的倍数
             }
@@ -38,12 +38,12 @@ auto init = []
 
 
 //二、LPF
-const int MX = 1'000'001;
-int lpf[MX];
+const int N = 1'000'001;
+int lpf[N];
 int init = [] {
-    for (int i = 2; i < MX; i++) {
+    for (int i = 2; i < N; i++) {
         if (lpf[i] == 0) { // i 是质数
-            for (int j = i; j < MX; j += i) {
+            for (int j = i; j < N; j += i) {
                 if (lpf[j] == 0) { // 首次访问 j
                     lpf[j] = i;
                 }

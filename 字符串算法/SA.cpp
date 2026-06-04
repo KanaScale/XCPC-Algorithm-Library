@@ -14,6 +14,10 @@ public:
         rk.resize(n);
         ht.resize(n);
         if (n == 0) return;
+        if (n == 1) {
+            sa[0] = rk[0] = ht[0] = 0;
+            return;
+        }
 
         vector<int> y(n), c(n);
         int m = 256; // 字符集大小 (ASCII)
