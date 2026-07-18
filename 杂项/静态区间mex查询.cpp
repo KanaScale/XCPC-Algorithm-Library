@@ -1,3 +1,5 @@
+//值域主席树，维护每个值最早出现下标
+//查询[L,R] mex，即在R前缀对应版本中，线段树二分找到最小的x，使得last[x] < L
 struct StaticRangeMex {
     struct Node {
         int lch, rch;

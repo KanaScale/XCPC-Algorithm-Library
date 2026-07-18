@@ -15,7 +15,7 @@ public:
     long long pre(int i)
     {
         long long res = 0;
-        for (i += 1; i > 0; i &= i - 1)
+        for (i += 1; i > 0; i -= i & -i)
         {
             res += t[i];
         }
