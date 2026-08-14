@@ -1,14 +1,14 @@
-class RMQ
+class RMQ_max
 {
     vector<vector<int>> st;
     int ope(const int &a, const int &b) { return max(a, b); };
 
 public:
-    RMQ(vector<int> &a)
+    RMQ_max(vector<int> &a)
     {
         build(a);
     }
-    RMQ() {}
+    RMQ_max() {}
     void build(vector<int> &a)
     {
         int n = a.size();

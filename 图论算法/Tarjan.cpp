@@ -1,4 +1,5 @@
 // tarjan 求双连通分量
+//注意递归时维护父节点，回边更新时不算父边
 const int N = 2e5 + 10;
 const int mod = 998244353;
 
